@@ -1,4 +1,5 @@
-const app = require('express')();
+const express = require('express');
+const app = express();
 const socket = require('socket.io');
 const color = require('colors');
 const cors = require('cors');
