@@ -1,7 +1,7 @@
 const express = require('express');
 const app = express();
 const socket = require('socket.io');
-const color = require('colors');
+//const color = require('colors');
 const cors = require('cors');
 const { getCurrentUser, userDisconnect, joinUser } = require('./users');
 
@@ -11,12 +11,9 @@ const PORT = 8000;
 
 app.use(cors());
 
-let server = app.listen
-(PORT, console.log(`Server connected on the port ${(PORT)}`
-.green
-)
-);
-
+let server = app.listen(PORT, () => {
+    console.log('server is running')
+})
 const io = socket(server);
 
 io.on('connection', (socket) => {
