@@ -1,5 +1,5 @@
 import './chat.scss';
-import { to_Dcrypt, to_Encrypt } from '../aes';
+import { to_Decrypt, to_Encrypt } from '../aes';
 import { process } from '../store/action/index';
 import React, { useState, useEffect, useRef} from 'react';
 import { useDispatch } from 'react-redux';
@@ -15,7 +15,7 @@ function Chat ({ username, roomname, socket}) {
     useEffect(() => {
         socket.on('message', (data) => {
             //decrypt the message
-            const ans = to_Dcrypt(data.text, data.username);
+            const ans = to_Decrypt(data.text, data.username);
             dispatchProcess(false, ans, data.text);
             console.log(ans);
             let temp = messages;
